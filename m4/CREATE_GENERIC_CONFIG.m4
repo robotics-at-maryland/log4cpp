@@ -21,7 +21,7 @@ dnl install-generic-config:
 dnl 	$(mkinstalldirs) $(DESTDIR)$(bindir)
 dnl 	$(INSTALL_SCRIPT) @GENERIC_CONFIG@ $(DESTDIR)$(bindir)
 dnl
-dnl @version $Id: CREATE_GENERIC_CONFIG.m4,v 1.1 2001-06-04 12:23:42 bastiaan Exp $
+dnl @version $Id: CREATE_GENERIC_CONFIG.m4,v 1.2 2001-11-08 09:59:35 bastiaan Exp $
 dnl @author Guido Draheim <guidod@gmx.de>
 
 AC_DEFUN([AC_CREATE_GENERIC_CONFIG],[# create a generic PACKAGE-config file
@@ -72,7 +72,7 @@ echo 'fi' >>$F
 echo ' ' >>$F
 echo 'o=""' >>$F
 echo 'h=""' >>$F
-echo 'for i ; do' >>$F
+echo 'for i in $* ; do' >>$F
 echo '  case $i in' >>$F
 echo '  --prefix=*) prefix=`echo $i | sed -e "s/--prefix=//"` ;;' >>$F
 echo '  --prefix)    o="$o $prefix" ;;' >>$F
