@@ -1,10 +1,14 @@
-/* $Id: Clock.hh,v 1.4 2002-02-18 22:10:12 bastiaan Exp $
+/* $Id: Clock.hh,v 1.5 2002-09-15 22:40:50 bastiaan Exp $
  * 
  * See the COPYING file for the terms of usage and distribution.
  */
 
 #ifndef __CLOCK_H
 #define __CLOCK_H
+
+#ifdef LOG4CPP_HAVE_STDINT_H
+#include <stdint.h>
+#endif // LOG4CPP_HAVE_STDINT_H
 
 #ifdef __osf__
     typedef long usec_t;    /* number of microseconds since 1970/01/01 */

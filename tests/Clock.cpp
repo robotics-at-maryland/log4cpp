@@ -1,10 +1,10 @@
-static const char rcsid[] = "$Id: Clock.cpp,v 1.8 2002-06-03 20:48:12 legoater Exp $";
+static const char rcsid[] = "$Id: Clock.cpp,v 1.9 2002-09-15 22:40:50 bastiaan Exp $";
 
 /* 
  * See the COPYING file for the terms of usage and distribution.
  */
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <sys/time.h>			// for struct timeval
 #ifdef __osf__
 #    include <machine/builtins.h>       // for __RPCC()
@@ -21,7 +21,7 @@ namespace
     const usec_t UsecPerSec = INT64_CONSTANT(1000000);
 }
 
-bool Clock::UsingCPU  = ::getenv("CLOCK_USE_CPU") ? true : false;
+bool Clock::UsingCPU  = std::getenv("CLOCK_USE_CPU") ? true : false;
 
 // -----------------------------------------------------------------------------
 usec_t Clock::time(void)
