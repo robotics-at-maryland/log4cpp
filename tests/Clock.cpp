@@ -1,4 +1,4 @@
-static const char rcsid[] = "$Id: Clock.cpp,v 1.2 2001-03-08 08:23:43 legoater Exp $";
+static const char rcsid[] = "$Id: Clock.cpp,v 1.3 2001-03-27 12:32:53 legoater Exp $";
 
 /* 
  * See the COPYING file for the terms of usage and distribution.
@@ -10,7 +10,6 @@ static const char rcsid[] = "$Id: Clock.cpp,v 1.2 2001-03-08 08:23:43 legoater E
 #elif __linux__
 #    include <asm/msr.h>		// for rdtscl()
 #endif
-#include <cstdlib>
 #include <iostream>
 
 #include "Clock.hh"
