@@ -1,4 +1,4 @@
-/* $Id: Clock.hh,v 1.3 2001-03-27 16:14:00 legoater Exp $
+/* $Id: Clock.hh,v 1.4 2002-02-18 22:10:12 bastiaan Exp $
  * 
  * See the COPYING file for the terms of usage and distribution.
  */
@@ -10,7 +10,7 @@
     typedef long usec_t;    /* number of microseconds since 1970/01/01 */
 #   define INT64_CONSTANT(val)  (val##L)
 #else
-    typedef long long int usec_t;
+    typedef int64_t usec_t;
 #   define INT64_CONSTANT(val)  (val##LL)
 #endif
 
