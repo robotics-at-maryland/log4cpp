@@ -1,9 +1,10 @@
-static const char rcsid[] = "$Id: Clock.cpp,v 1.3 2001-03-27 12:32:53 legoater Exp $";
+static const char rcsid[] = "$Id: Clock.cpp,v 1.4 2001-03-27 16:14:00 legoater Exp $";
 
 /* 
  * See the COPYING file for the terms of usage and distribution.
  */
 
+#include <stdlib.h>
 #include <sys/time.h>			// for struct timeval
 #ifdef __osf__
 #    include <machine/builtins.h>       // for __RPCC()

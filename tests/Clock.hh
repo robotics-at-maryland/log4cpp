@@ -1,4 +1,4 @@
-/* $Id: Clock.hh,v 1.2 2001-03-08 08:23:43 legoater Exp $
+/* $Id: Clock.hh,v 1.3 2001-03-27 16:14:00 legoater Exp $
  * 
  * See the COPYING file for the terms of usage and distribution.
  */
@@ -7,13 +7,11 @@
 #define __CLOCK_H
 
 #ifdef __osf__
-typedef long usec_t;    /* number of microseconds since 1970/01/01 */
-#define INT64_CONSTANT(val)  (val##L)
-#endif
-
-#ifdef __linux__
-typedef long long int usec_t;
-#define INT64_CONSTANT(val)  (val##LL)
+    typedef long usec_t;    /* number of microseconds since 1970/01/01 */
+#   define INT64_CONSTANT(val)  (val##L)
+#else
+    typedef long long int usec_t;
+#   define INT64_CONSTANT(val)  (val##LL)
 #endif
 
 class Clock
