@@ -1,4 +1,4 @@
-static const char rcsid[] = "$Id: Clock.cpp,v 1.4 2001-03-27 16:14:00 legoater Exp $";
+static const char rcsid[] = "$Id: Clock.cpp,v 1.5 2001-04-10 14:39:09 bastiaan Exp $";
 
 /* 
  * See the COPYING file for the terms of usage and distribution.
@@ -43,7 +43,11 @@ usec_t Clock::time(void)
 	    return (usec_t) tsc;
 	}
 #else
-#    error CPU clock not implemented for this architecture
+	{
+	    std::cerr << "CPU clock not implemented for this architecture" << endl;
+	    UsingCPU = false;
+	    return Clock::time();
+	}
 #endif	
     } else {
 	struct timeval tv;
