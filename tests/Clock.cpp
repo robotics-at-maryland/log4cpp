@@ -1,4 +1,4 @@
-static const char rcsid[] = "$Id: Clock.cpp,v 1.6 2002-02-05 22:52:46 bastiaan Exp $";
+static const char rcsid[] = "$Id: Clock.cpp,v 1.7 2002-04-09 19:44:27 bastiaan Exp $";
 
 /* 
  * See the COPYING file for the terms of usage and distribution.
@@ -8,7 +8,7 @@ static const char rcsid[] = "$Id: Clock.cpp,v 1.6 2002-02-05 22:52:46 bastiaan E
 #include <sys/time.h>			// for struct timeval
 #ifdef __osf__
 #    include <machine/builtins.h>       // for __RPCC()
-#elif __linux__
+#elif __linux__ && __i386__
 #    include <asm/msr.h>		// for rdtscl()
 #endif
 #include <iostream>
@@ -35,7 +35,7 @@ usec_t Clock::time(void)
 
 #ifdef __osf__
 	return (usec_t) __RPCC();
-#elif __linux__
+#elif __linux__ && __i386__
 	{
 	    unsigned long tsc;
 			
