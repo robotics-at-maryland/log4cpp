@@ -1,12 +1,10 @@
-/* $Id: Clock.hh,v 1.1 2000-12-22 13:22:41 legoater Exp $
+/* $Id: Clock.hh,v 1.2 2001-03-08 08:23:43 legoater Exp $
  * 
  * See the COPYING file for the terms of usage and distribution.
  */
 
 #ifndef __CLOCK_H
 #define __CLOCK_H
-
-#include <iostream>
 
 #ifdef __osf__
 typedef long usec_t;    /* number of microseconds since 1970/01/01 */
@@ -20,19 +18,20 @@ typedef long long int usec_t;
 
 class Clock
 {
- public:
+public:
+    static bool		UsingCPU;
     static usec_t 	time(void);
 
-    explicit		Clock(void);
-    virtual		~Clock(void);
+    			Clock(void);
+    			~Clock(void);
 
     bool		active(void) const { return _active; }
+    usec_t		elapsed(void) const;
     usec_t		start(void);
     usec_t		reset(void) { return start(); }
-    usec_t		elapsed(void);
     usec_t		stop(void);
 
- private:
+private:
     usec_t		_start;    
     usec_t		_elapsed;
     bool		_active;
