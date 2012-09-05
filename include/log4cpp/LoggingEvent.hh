@@ -45,6 +45,9 @@ namespace log4cpp {
         LoggingEvent(const std::string& category, const std::string& message, 
                      const std::string& ndc, Priority::Value priority);
 
+        LoggingEvent(const LoggingEvent& other);
+
+        LoggingEvent& operator=(const LoggingEvent& other);
 
         /** The category name. */
         const std::string categoryName;
